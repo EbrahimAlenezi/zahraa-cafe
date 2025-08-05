@@ -1,10 +1,13 @@
 import { menu } from "@/data/menu/menu";
 import { Image } from "expo-image";
 import { LinearGradient } from "expo-linear-gradient";
+import { useLocalSearchParams } from "expo-router";
 import { StyleSheet, Text, View } from "react-native";
 
 const MenuItemDetail = () => {
-  const menuItemDetails = menu.find((item) => item.id === 1);
+  const { idd } = useLocalSearchParams();
+  const menuItemDetails = menu.find((item) => item.id === +idd);
+  console.log(idd);
 
   return (
     <View style={styles.container}>
